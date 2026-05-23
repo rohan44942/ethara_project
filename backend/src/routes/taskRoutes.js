@@ -1,13 +1,30 @@
 import express from 'express';
+import * as taskController from '../controllers/taskController.js';
+import { authenticate } from '../middleware/authMiddleware.js';
+import { validate } from '../middleware/validationMiddleware.js';
+import {
+  createTaskSchema,
+  updateTaskSchema,
+  updateTaskStatusSchema,
+  taskIdSchema,
+  projectIdSchema,
+} from '../validators/taskValidator.js';
 
 const router = express.Router();
 
-// Routes will be implemented in next steps
-// GET /api/projects/:id/tasks (moved to projectRoutes)
-// POST /api/projects/:id/tasks (moved to projectRoutes)
-// GET /api/tasks/:id
-// PUT /api/tasks/:id
-// DELETE /api/tasks/:id
-// PATCH /api/tasks/:id/status
+// All routes require authentication
+router.use(authenticate);
+
+// GET /api/tasks/:id - Get task details
+router.get('/:id', validate(taskIdSchema), taskController.getTaskById);
+
+// PUT /api/tasks/:id - Update task
+router.put('/:id', validate(updateTaskSchema), taskController.updateTask);
+
+// DELETE /api/tasks/:id - Soft delete task
+router.delete('/:id', validate(taskIdSchema), taskController.deleteTask);
+
+// PATCH /api/tasks/:id/status - Update task status
+router.patch('/:id/status', validate(updateTaskStatusSchema), taskController.updateTaskStatus);
 
 export default router;

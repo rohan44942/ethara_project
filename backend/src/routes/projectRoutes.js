@@ -1,5 +1,6 @@
 import express from 'express';
 import * as projectController from '../controllers/projectController.js';
+import * as taskController from '../controllers/taskController.js';
 import { authenticate } from '../middleware/authMiddleware.js';
 import { validate } from '../middleware/validationMiddleware.js';
 import {
@@ -7,6 +8,7 @@ import {
   updateProjectSchema,
   projectIdSchema,
 } from '../validators/projectValidator.js';
+import { createTaskSchema, projectIdSchema as taskProjectIdSchema } from '../validators/taskValidator.js';
 
 const router = express.Router();
 
@@ -32,5 +34,12 @@ router.put(
 
 // DELETE /api/projects/:id - Soft delete project (Admin only)
 router.delete('/:id', validate(projectIdSchema), projectController.deleteProject);
+
+// Task routes within project
+// GET /api/projects/:id/tasks - Get all tasks in project
+router.get('/:id/tasks', validate(taskProjectIdSchema), taskController.getProjectTasks);
+
+// POST /api/projects/:id/tasks - Create task in project
+router.post('/:id/tasks', validate(createTaskSchema), taskController.createTask);
 
 export default router;
