@@ -1,88 +1,14 @@
-@import "tailwindcss";
-
-@theme {
-  --color-primary: #3b82f6;
-  --color-primary-dark: #2563eb;
-  --color-primary-light: #60a5fa;
-  --color-secondary: #8b5cf6;
-  --color-secondary-dark: #7c3aed;
-  --color-secondary-light: #a78bfa;
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-  --color-info: #06b6d4;
-}
-
-/* CSS Variables for theming */
-:root {
-  /* Primary Colors */
-  --color-primary: #3b82f6;
-  --color-primary-dark: #2563eb;
-  --color-primary-light: #60a5fa;
-  
-  /* Secondary Colors */
-  --color-secondary: #8b5cf6;
-  --color-secondary-dark: #7c3aed;
-  --color-secondary-light: #a78bfa;
-  
-  /* Status Colors */
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-  --color-info: #06b6d4;
-  
-  /* Neutral Colors */
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
-  
-  /* Background */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --bg-tertiary: #f3f4f6;
-  
-  /* Text */
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --text-tertiary: #9ca3af;
-  
-  /* Borders */
-  --border-color: #e5e7eb;
-  --border-radius: 0.5rem;
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-  
-  /* Transitions */
-  --transition-fast: 150ms ease-in-out;
-  --transition-normal: 300ms ease-in-out;
-  --transition-slow: 500ms ease-in-out;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
 }
 
 /* Custom scrollbar */
@@ -92,121 +18,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: #f9fafb;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-gray-400);
+  background: #9ca3af;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gray-500);
-}
-
-/* Utility classes */
-@layer components {
-  .btn {
-    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
-  }
-
-  .btn-primary {
-    @apply bg-primary text-white hover:bg-primary-dark focus:ring-primary;
-  }
-
-  .btn-secondary {
-    @apply bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary;
-  }
-
-  .btn-success {
-    @apply bg-success text-white hover:bg-green-600 focus:ring-success;
-  }
-
-  .btn-danger {
-    @apply bg-error text-white hover:bg-red-600 focus:ring-error;
-  }
-
-  .btn-outline {
-    @apply border-2 border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-gray-300;
-  }
-
-  .card {
-    @apply bg-white rounded-lg shadow-md p-6 border border-gray-200;
-  }
-
-  .input {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
-  }
-
-  .label {
-    @apply block text-sm font-medium text-gray-700 mb-2;
-  }
-
-  .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
-  }
-
-  .badge-primary {
-    @apply bg-blue-100 text-blue-800;
-  }
-
-  .badge-success {
-    @apply bg-green-100 text-green-800;
-  }
-
-  .badge-warning {
-    @apply bg-yellow-100 text-yellow-800;
-  }
-
-  .badge-danger {
-    @apply bg-red-100 text-red-800;
-  }
-
-  .badge-info {
-    @apply bg-cyan-100 text-cyan-800;
-  }
-}
-
-/* Animations */
-.fade-in {
-  animation: fadeIn var(--transition-normal);
-}
-
-.slide-up {
-  animation: slideUp var(--transition-normal);
-}
-
-.scale-in {
-  animation: scaleIn var(--transition-fast);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  background: #6b7280;
 }
