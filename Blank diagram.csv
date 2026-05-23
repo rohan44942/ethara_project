@@ -1,0 +1,195 @@
+Id,Name,Shape Library,Page ID,Contained By,Group,Line Source,Line Destination,Source Arrow,Destination Arrow,Status,Text Area 1,Comments,Notes,Shape ID,SpreadsheetColumnParentKey,SpreadsheetRowParentKey
+1,Document,,,,,,,,,Draft,Blank diagram,,,e104d866-b03a-4d67-888f-98e8f4e962bb,,
+2,Page,,,,,,,,,,Page 1,,,0_0,,
+3,SparkFrameBlock,Lucidspark Shapes,2,,,,,,,,Team Task Manager Architecture,,,T3UZ9L9gi6uv,,
+4,SparkFrameBlock,Lucidspark Shapes,2,3,,,,,,,Client (Web UI),,,W3UZx18siyA.,,
+5,Laptop Device,Network Infrastructure,2,3|4,,,,,,,React/Next.js SPA,,,T3UZM_2.Iskp,COLUMN,ROW
+6,Tablet Device,Network Infrastructure,2,3|4,,,,,,,State Mgmt (Redux/Query),,,T3UZe0p_ryMc,COLUMN,ROW
+7,Web Service,Network Infrastructure,2,3|4,,,,,,,HTTP Client (REST),,,T3UZ2FM1~vdT,COLUMN,ROW
+8,Radio Tower,Network Infrastructure,2,3|4,,,,,,,WebSocket Client,,,T3UZtcGH4e8f,COLUMN,ROW
+9,Firewall,Network Infrastructure,2,3|4,,,,,,,Auth Storage (Secure cookies/Memory),,,T3UZOP6go~oe,COLUMN,ROW
+10,LCD Monitor,Network Infrastructure,2,3|4,,,,,,,Dashboard Views,,,T3UZHTxDnj-b,COLUMN,ROW
+11,SparkFrameBlock,Lucidspark Shapes,2,3,,,,,,,Backend API (Node.js/Express/Fastify),,,W3UZ7RFQRd7m,,
+12,SparkFrameBlock,Lucidspark Shapes,2,3|11,,,,,,,Controller Layer (REST endpoints),,,W3UZxHqH1.07,,
+13,Web Service,Network Infrastructure,2,3|11|12,,,,,,,AuthController (/auth: signup/login/refresh/logout),,,U3UZVPTbHkcl,COLUMN,ROW
+14,Web Service,Network Infrastructure,2,3|11|12,,,,,,,ProjectController (/projects CRUD),,,U3UZKz12iSzk,COLUMN,ROW
+15,Web Service,Network Infrastructure,2,3|11|12,,,,,,,"TeamController (/teams, memberships)",,,U3UZAgJeW97B,COLUMN,ROW
+16,Web Service,Network Infrastructure,2,3|11|12,,,,,,,"TaskController (/tasks CRUD, status)",,,U3UZyKuRz10l,COLUMN,ROW
+17,Web Service,Network Infrastructure,2,3|11|12,,,,,,,DashboardController (/dashboard summaries),,,U3UZSNE5DsnX,COLUMN,ROW
+18,Web Service,Network Infrastructure,2,3|11|12,,,,,,,AdminController (/admin user/project mgmt),,,U3UZNciIc_cf,COLUMN,ROW
+19,Web Service,Network Infrastructure,2,3|11|12,,,,,,,AttachmentController (/attachments presign),,,U3UZ-vHaIK.J,COLUMN,ROW
+20,SparkFrameBlock,Lucidspark Shapes,2,3|11,,,,,,,Service Layer (Business logic),,,W3UZneStgEoe,,
+21,Server,Network Infrastructure,2,3|11|20,,,,,,,"AuthService (hash, tokens, session)",,,U3UZZGo5k4ST,COLUMN,ROW
+22,Server,Network Infrastructure,2,3|11|20,,,,,,,ProjectService,,,U3UZ3m9rZjE8,COLUMN,ROW
+23,Server,Network Infrastructure,2,3|11|20,,,,,,,TeamService,,,U3UZ3MogU3jp,COLUMN,ROW
+24,Server,Network Infrastructure,2,3|11|20,,,,,,,"TaskService (assign, status, overdue)",,,U3UZR20JPHvq,COLUMN,ROW
+25,Server,Network Infrastructure,2,3|11|20,,,,,,,DashboardService (aggregations),,,U3UZf66dxS-U,COLUMN,ROW
+26,Server,Network Infrastructure,2,3|11|20,,,,,,,AdminService,,,U3UZfn_m8u62,COLUMN,ROW
+27,Server,Network Infrastructure,2,3|11|20,,,,,,,AttachmentService,,,U3UZYDLgIxy_,COLUMN,ROW
+28,Server,Network Infrastructure,2,3|11|20,,,,,,,NotificationService (email/push),,,U3UZ-iSWxO5w,COLUMN,ROW
+29,Server,Network Infrastructure,2,3|11|20,,,,,,,RealtimeService (publish updates),,,U3UZO9Y.O1It,COLUMN,ROW
+30,Server,Network Infrastructure,2,3|11|20,,,,,,,AuditService,,,U3UZukNQy6C0,COLUMN,ROW
+31,SparkFrameBlock,Lucidspark Shapes,2,3|11,,,,,,,Repository Layer (Data access),,,W3UZ2IEnoI46,,
+32,External Hard Drive,Network Infrastructure,2,3|11|31,,,,,,,UserRepository,,,U3UZukg0ZCC_,COLUMN,ROW
+33,External Hard Drive,Network Infrastructure,2,3|11|31,,,,,,,ProjectRepository,,,U3UZMvw1n8_Z,COLUMN,ROW
+34,External Hard Drive,Network Infrastructure,2,3|11|31,,,,,,,TeamMembershipRepository,,,U3UZIIx0Q6cS,COLUMN,ROW
+35,External Hard Drive,Network Infrastructure,2,3|11|31,,,,,,,TaskRepository,,,U3UZLiq.Fn7W,COLUMN,ROW
+36,External Hard Drive,Network Infrastructure,2,3|11|31,,,,,,,TaskAssignmentRepository,,,U3UZUs8SlW_o,COLUMN,ROW
+37,External Hard Drive,Network Infrastructure,2,3|11|31,,,,,,,AuditLogRepository,,,U3UZkippD60G,COLUMN,ROW
+38,SparkFrameBlock,Lucidspark Shapes,2,3,,,,,,,Postgres (Relational DB),,,W3UZs_urE9Fl,,
+39,Server,Network Infrastructure,2,3|38,,,,,,,users,,,U3UZH2m.di6l,COLUMN,ROW
+40,Server,Network Infrastructure,2,3|38,,,,,,,projects,,,U3UZRJn~FGHD,COLUMN,ROW
+41,Server,Network Infrastructure,2,3|38,,,,,,,team_memberships,,,U3UZd~W2YhFa,COLUMN,ROW
+42,Server,Network Infrastructure,2,3|38,,,,,,,tasks,,,V3UZr.LXWAIk,COLUMN,ROW
+43,Server,Network Infrastructure,2,3|38,,,,,,,task_assignments,,,V3UZa1urGBUD,COLUMN,ROW
+44,Server,Network Infrastructure,2,3|38,,,,,,,audit_logs,,,V3UZyIqjHFFx,COLUMN,ROW
+45,Server,Network Infrastructure,2,3|38,,,,,,,Indexes/Constraints,,,V3UZEEArXIBT,COLUMN,ROW
+46,SparkFrameBlock,Lucidspark Shapes,2,3,,,,,,,Redis (Cache/Queue),,,W3UZlPoBiIJa,,
+47,Switch,Network Infrastructure,2,3|46,,,,,,,Session/Refresh token blacklist,,,V3UZ16C41KCh,COLUMN,ROW
+48,Switch,Network Infrastructure,2,3|46,,,,,,,"Job Queue: overdue_check, email_send",,,V3UZKY0m7KbJ,COLUMN,ROW
+49,Switch,Network Infrastructure,2,3|46,,,,,,,Rate-limit counters,,,V3UZIOH93c0L,COLUMN,ROW
+50,Switch,Network Infrastructure,2,3|46,,,,,,,WebSocket pub/sub,,,V3UZ6Qb-FcC.,COLUMN,ROW
+51,SparkFrameBlock,Lucidspark Shapes,2,3,,,,,,,Background Worker & Cron,,,W3UZTSB-y2c7,,
+52,Repeater,Network Infrastructure,2,3|51,,,,,,,Cron Scheduler (periodic),,,V3UZo_1CJLNC,COLUMN,ROW
+53,Server,Network Infrastructure,2,3|51,,,,,,,Worker (BullMQ/Resque),,,V3UZVNyPlhT5,COLUMN,ROW
+54,SparkFrameBlock,Lucidspark Shapes,2,3,,,,,,,Object Storage (S3-compatible),,,W3UZA.0-kot-,,
+55,External Hard Drive,Network Infrastructure,2,3|54,,,,,,,Bucket: attachments,,,V3UZyeRH1sft,COLUMN,ROW
+56,Web Service,Network Infrastructure,2,3|54,,,,,,,Presigned URL Service,,,V3UZrB5bMlzm,COLUMN,ROW
+57,SparkFrameBlock,Lucidspark Shapes,2,3,,,,,,,Observability,,,W3UZGWnvb0Sb,,
+58,External Hard Drive,Network Infrastructure,2,3|57,,,,,,,Centralized Logs,,,V3UZxO5xFGwo,COLUMN,ROW
+59,MPLS,Network Infrastructure,2,3|57,,,,,,,Metrics/Prometheus,,,V3UZIwZ-CA9i,COLUMN,ROW
+60,Satellite Dish,Network Infrastructure,2,3|57,,,,,,,Tracing/OpenTelemetry,,,V3UZ~bFsFQUz,COLUMN,ROW
+61,Projector Screen,Network Infrastructure,2,3|57,,,,,,,Dashboards/Alerts,,,V3UZjRr3f3Ms,COLUMN,ROW
+62,SparkFrameBlock,Lucidspark Shapes,2,3,,,,,,,CI/CD Pipeline,,,W3UZpTkjyPjl,,
+63,Server,Network Infrastructure,2,3|62,,,,,,,GitHub Repo,,,V3UZoI-v10WN,COLUMN,ROW
+64,Web Service,Network Infrastructure,2,3|62,,,,,,,GitHub Actions (Build/Test),,,V3UZ99a.Z3Ic,COLUMN,ROW
+65,Virtual Server,Network Infrastructure,2,3|62,,,,,,,Docker Image Build,,,V3UZUythrUZ~,COLUMN,ROW
+66,External Hard Drive,Network Infrastructure,2,3|62,,,,,,,Container Registry,,,V3UZWFb3xdrh,COLUMN,ROW
+67,Router,Network Infrastructure,2,3|62,,,,,,,Deploy to Railway,,,V3UZp.OP7QDG,COLUMN,ROW
+68,LCD Monitor,Network Infrastructure,2,3|62,,,,,,,README + Demo Video,,,V3UZUoA37zB3,COLUMN,ROW
+69,SparkFrameBlock,Lucidspark Shapes,2,3,,,,,,,Railway Deployment,,,W3UZCEVy8tWL,,
+70,Virtual Server,Network Infrastructure,2,3|69,,,,,,,Service: API,,,V3UZ86joy~zx,COLUMN,ROW
+71,Virtual Server,Network Infrastructure,2,3|69,,,,,,,Service: Worker,,,V3UZl4wb~i9Z,COLUMN,ROW
+72,Virtual Server,Network Infrastructure,2,3|69,,,,,,,Managed Postgres,,,V3UZfIiBWpka,COLUMN,ROW
+73,Virtual Server,Network Infrastructure,2,3|69,,,,,,,Managed Redis,,,V3UZpflhl5kH,COLUMN,ROW
+74,Patch Panel,Network Infrastructure,2,3|69,,,,,,,Env Vars/Secrets,,,W3UZlXw3pr1k,COLUMN,ROW
+75,Router,Network Infrastructure,2,3|69,,,,,,,Domains/HTTPS,,,W3UZTBxy6qvd,COLUMN,ROW
+76,Firewall,Network Infrastructure,2,3|11,,,,,,,AuthGuard Middleware (JWT verify/refresh),,,T3UZgnYFmivH,,
+77,Firewall,Network Infrastructure,2,3|11,,,,,,,RBAC Middleware (Admin/Member policies),,,U3UZAcDvP7Q-,,
+78,Firewall,Network Infrastructure,2,3|11,,,,,,,Validation Middleware (Zod/Joi),,,U3UZKeukf-pg,,
+79,Router,Network Infrastructure,2,3|11,,,,,,,WebSocket Gateway (ws://),,,U3UZ5BcINhBg,,
+80,Biometric Reader,Network Infrastructure,2,3|11,,,,,,,"JWT Service (access/refresh, revocation)",,,U3UZOBUWRGhy,,
+81,Patch Panel,Network Infrastructure,2,3|11,,,,,,,Config/Secrets Loader (env),,,U3UZX8DQipEm,,
+82,Diagnostic Device,Network Infrastructure,2,3|11,,,,,,,App Logger,,,U3UZvdG~L1uG,,
+83,MPLS,Network Infrastructure,2,3|11,,,,,,,App Metrics,,,U3UZXaESNRKo,,
+84,Comm-Link,Network Infrastructure,2,3,,,,,,,HTTPS,,,W3UZFaJ3_JSn,,
+85,Radio Tower,Network Infrastructure,2,3,,,,,,,wss://,,,W3UZoZHKP37u,,
+86,Line,,2,,,5,6,None,Arrow,,,,,W3UZIcn0QWkm,,
+87,Line,,2,,,6,7,None,Arrow,,,,,W3UZ0yJRKELl,,
+88,Line,,2,,,5,8,None,Arrow,,,,,X3UZioqWmwYx,,
+89,Line,,2,,,9,7,None,Arrow,,,,,X3UZRxdwFZm8,,
+90,Line,,2,,,8,79,None,Arrow,,,,,X3UZvjEqz9.o,,
+91,Line,,2,,,79,8,None,Arrow,,push,,,Y3UZCM0iTu7m,,
+92,Line,,2,,,7,13,None,Arrow,,signup/login,,,X3UZnrOdzraJ,,
+93,Line,,2,,,7,14,None,Arrow,,CRUD projects,,,X3UZ9ueGOFAV,,
+94,Line,,2,,,7,15,None,Arrow,,teams/members,,,X3UZTUi~4HGN,,
+95,Line,,2,,,7,16,None,Arrow,,CRUD tasks,,,X3UZKwyxITup,,
+96,Line,,2,,,7,17,None,Arrow,,dashboard queries,,,X3UZ3Vtvfem8,,
+97,Line,,2,,,7,18,None,Arrow,,admin ops,,,X3UZMsMH6TPl,,
+98,Line,,2,,,7,19,None,Arrow,,attachments,,,X3UZogNF59m.,,
+99,Line,,2,,,14,78,None,Arrow,,,,,X3UZKzArZkdA,,
+100,Line,,2,,,15,78,None,Arrow,,,,,X3UZP~RSWjz7,,
+101,Line,,2,,,16,78,None,Arrow,,,,,X3UZV1DS4Baf,,
+102,Line,,2,,,17,78,None,Arrow,,,,,X3UZvbb3mdNr,,
+103,Line,,2,,,18,78,None,Arrow,,,,,X3UZRIjGFbt_,,
+104,Line,,2,,,19,78,None,Arrow,,,,,X3UZ8UnqlAC5,,
+105,Line,,2,,,77,14,None,Arrow,,,,,X3UZOZZwZOsI,,
+106,Line,,2,,,77,15,None,Arrow,,,,,X3UZjOfi3Kbb,,
+107,Line,,2,,,77,16,None,Arrow,,,,,X3UZvnoldFIV,,
+108,Line,,2,,,77,17,None,Arrow,,,,,X3UZH.qAwo78,,
+109,Line,,2,,,77,18,None,Arrow,,,,,X3UZpdcC8TD5,,
+110,Line,,2,,,77,19,None,Arrow,,,,,X3UZQZjU~fsO,,
+111,Line,,2,,,13,9,None,Arrow,,tokens,,,Y3UZ_lf5nrcW,,
+112,Line,,2,,,17,10,None,Arrow,,,,,Y3UZJMlSVI5A,,
+113,Line,,2,,,84,13,None,Arrow,,,,,03UZgLsGPR5U,,
+114,Line,,2,,,84,14,None,Arrow,,,,,03UZXYRMw0Hg,,
+115,Line,,2,,,84,15,None,Arrow,,,,,03UZgzddAVAJ,,
+116,Line,,2,,,84,16,None,Arrow,,,,,03UZBeAo.Bsb,,
+117,Line,,2,,,84,17,None,Arrow,,,,,03UZhaAwnqJ2,,
+118,Line,,2,,,84,18,None,Arrow,,,,,03UZI4xLoST_,,
+119,Line,,2,,,84,19,None,Arrow,,,,,03UZuqIxAfjN,,
+120,Line,,2,,,18,77,None,Arrow,,enforce policies,,,03UZFhNM7wNE,,
+121,Line,,2,,,13,21,None,Arrow,,,,,X3UZ..ZPp507,,
+122,Line,,2,,,14,22,None,Arrow,,,,,Y3UZbc9sW3qz,,
+123,Line,,2,,,15,23,None,Arrow,,,,,Y3UZX0eeECdr,,
+124,Line,,2,,,16,24,None,Arrow,,,,,Y3UZlJcDpbbL,,
+125,Line,,2,,,17,25,None,Arrow,,,,,Y3UZwk6gmt54,,
+126,Line,,2,,,18,26,None,Arrow,,,,,Y3UZc8p62YnU,,
+127,Line,,2,,,19,27,None,Arrow,,,,,Y3UZ4sILwhRW,,
+128,Line,,2,,,21,80,None,Arrow,,issue tokens,,,Y3UZGHtk2OAI,,
+129,Line,,2,,,24,29,None,Arrow,,publish update,,,Y3UZ3CNnE.V6,,
+130,Line,,2,,,25,17,None,Arrow,,return KPIs,,,Y3UZwIw.ECc3,,
+131,Line,,2,,,28,5,None,Arrow,,email/push,,,Z3UZnB8F74c.,,
+132,Line,,2,,,28,30,None,Arrow,,audit,,,Z3UZM0yUihP.,,
+133,Line,,2,,,26,30,None,Arrow,,audit,,,03UZMKccyBm4,,
+134,Line,,2,,,21,32,None,Arrow,,,,,Y3UZ4GV1L6KO,,
+135,Line,,2,,,22,33,None,Arrow,,,,,Y3UZW0RcdSk6,,
+136,Line,,2,,,23,32,None,Arrow,,,,,Y3UZpSzC9CUn,,
+137,Line,,2,,,23,34,None,Arrow,,,,,Y3UZv4sxksvj,,
+138,Line,,2,,,24,35,None,Arrow,,,,,Y3UZstKt3Es_,,
+139,Line,,2,,,24,36,None,Arrow,,,,,Y3UZwenMm3oC,,
+140,Line,,2,,,25,32,None,Arrow,,,,,Y3UZ6BbcSe01,,
+141,Line,,2,,,25,35,None,Arrow,,,,,Y3UZ6IvYP0uV,,
+142,Line,,2,,,26,32,None,Arrow,,,,,Y3UZ7O7X4bAu,,
+143,Line,,2,,,26,33,None,Arrow,,,,,Y3UZmAG9sm~1,,
+144,Line,,2,,,26,34,None,Arrow,,,,,Y3UZ6AorEupN,,
+145,Line,,2,,,30,37,None,Arrow,,,,,Y3UZ.G.O5EjA,,
+146,Line,,2,,,21,32,None,Arrow,,hash/verify,,,Y3UZrwLdYi.8,,
+147,Line,,2,,,27,35,None,Arrow,,link to task,,,Z3UZSMcZJmBu,,
+148,Line,,2,,,30,37,None,Arrow,,,,,Z3UZ_rkZypvL,,
+149,Line,,2,,,32,39,None,Arrow,,,,,Y3UZMMTbbtsj,,
+150,Line,,2,,,33,40,None,Arrow,,,,,Y3UZ61lj_1vI,,
+151,Line,,2,,,34,41,None,Arrow,,,,,Y3UZREQB.kqo,,
+152,Line,,2,,,35,42,None,Arrow,,,,,Y3UZPSDS2lL7,,
+153,Line,,2,,,36,43,None,Arrow,,,,,Y3UZ7Uh2K~-C,,
+154,Line,,2,,,37,44,None,Arrow,,,,,Y3UZf9a~KRJF,,
+155,Line,,2,,,45,39,None,Arrow,,,,,Y3UZ5shIG2N_,,
+156,Line,,2,,,45,40,None,Arrow,,,,,Y3UZ0Q4OldDw,,
+157,Line,,2,,,45,41,None,Arrow,,,,,Y3UZ5.JUss39,,
+158,Line,,2,,,45,42,None,Arrow,,,,,Y3UZhwcNuQnz,,
+159,Line,,2,,,45,43,None,Arrow,,,,,Y3UZ787KxhjF,,
+160,Line,,2,,,45,44,None,Arrow,,,,,Y3UZxsrjI~QV,,
+161,Line,,2,,,28,48,None,Arrow,,,,,Y3UZlinGyZsV,,
+162,Line,,2,,,80,47,None,Arrow,,store blacklist,,,Y3UZg3K.-.z7,,
+163,Line,,2,,,29,50,None,Arrow,,pub/sub,,,Y3UZ8B44w7.y,,
+164,Line,,2,,,50,79,None,Arrow,,fan-out,,,Y3UZ0i9TbP5Q,,
+165,Line,,2,,,52,48,None,Arrow,,enqueue overdue_check,,,Y3UZHcXAJNWr,,
+166,Line,,2,,,53,48,None,Arrow,,consume jobs,,,Y3UZkJHuvOay,,
+167,Line,,2,,,53,42,None,Arrow,,query tasks,,,Z3UZ6dkPqWL~,,
+168,Line,,2,,,53,28,None,Arrow,,notify,,,Z3UZ7bsCM74T,,
+169,Line,,2,,,27,56,None,Arrow,,presign,,,Z3UZk9.YQ7oT,,
+170,Line,,2,,,56,55,None,Arrow,,upload/download,,,Z3UZrHpLt6dW,,
+171,Line,,2,,,7,55,None,Arrow,,upload via URL,,,Z3UZpR2e7B85,,
+172,Line,,2,,,82,58,None,Arrow,,,,,Z3UZfWfb3ljJ,,
+173,Line,,2,,,83,59,None,Arrow,,,,,Z3UZe.m9gA.b,,
+174,Line,,2,,,60,61,None,Arrow,,,,,Z3UZBa52B5-D,,
+175,Line,,2,,,59,61,None,Arrow,,,,,Z3UZceaibuid,,
+176,Line,,2,,,58,61,None,Arrow,,,,,Z3UZuKgxtcq5,,
+177,Line,,2,,,63,64,None,Arrow,,,,,Z3UZBxQD69Ht,,
+178,Line,,2,,,64,65,None,Arrow,,,,,Z3UZkvJzeaz~,,
+179,Line,,2,,,65,66,None,Arrow,,,,,Z3UZ~.9mc95U,,
+180,Line,,2,,,66,67,None,Arrow,,,,,Z3UZUl4zzcWO,,
+181,Line,,2,,,63,68,None,Arrow,,,,,Z3UZYRE6~UXJ,,
+182,Line,,2,,,74,81,None,Arrow,,,,,Z3UZ9Y-crQA3,,
+183,Line,,2,,,67,70,None,Arrow,,,,,Z3UZrWmj0BqN,,
+184,Line,,2,,,67,71,None,Arrow,,,,,Z3UZgZ-Fs9ma,,
+185,Line,,2,,,70,75,None,Arrow,,,,,Z3UZNjWyZ7zE,,
+186,Line,,2,,,71,75,None,Arrow,,,,,Z3UZ.lur.pzM,,
+187,Line,,2,,,70,74,None,Arrow,,,,,03UZGkGKsZ4L,,
+188,Line,,2,,,71,74,None,Arrow,,,,,03UZBHvnQfSx,,
+189,Line,,2,,,84,75,None,Arrow,,,,,03UZT-BnRW_Z,,
+190,Line,,2,,,85,75,None,Arrow,,,,,03UZLMOxHuOq,,
+191,Line,,2,,,78,76,None,Arrow,,,,,X3UZV._Pw98N,,
+192,Line,,2,,,76,77,None,Arrow,,,,,X3UZ4-jaW_mL,,
+193,Line,,2,,,85,79,None,Arrow,,,,,03UZ8_ZZYCnp,,
+194,Line,,2,,,76,77,None,Arrow,,scopes/claims,,,03UZmcYDXErL,,

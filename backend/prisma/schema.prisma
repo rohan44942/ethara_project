@@ -1,0 +1,121 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum ProjectStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum MembershipStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum MemberRole {
+  ADMIN
+  MEMBER
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  DONE
+}
+
+enum TaskPriority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+model User {
+  id            String      @id @default(uuid())
+  email         String      @unique
+  passwordHash  String      @map("password_hash")
+  name          String
+  status        UserStatus  @default(ACTIVE)
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+
+  // Relations
+  createdProjects    Project[]          @relation("ProjectCreator")
+  memberships        TeamMembership[]
+  assignedTasks      Task[]             @relation("TaskAssignee")
+  createdTasks       Task[]             @relation("TaskCreator")
+  deletedTasks       Task[]             @relation("TaskDeleter")
+
+  @@map("users")
+}
+
+model Project {
+  id          String        @id @default(uuid())
+  name        String
+  description String?
+  status      ProjectStatus @default(ACTIVE)
+  createdBy   String        @map("created_by")
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+
+  // Relations
+  creator     User              @relation("ProjectCreator", fields: [createdBy], references: [id])
+  members     TeamMembership[]
+  tasks       Task[]
+
+  @@map("projects")
+}
+
+model TeamMembership {
+  id         String           @id @default(uuid())
+  projectId  String           @map("project_id")
+  userId     String           @map("user_id")
+  role       MemberRole       @default(MEMBER)
+  status     MembershipStatus @default(ACTIVE)
+  joinedAt   DateTime         @default(now()) @map("joined_at")
+  removedAt  DateTime?        @map("removed_at")
+
+  // Relations
+  project    Project          @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  user       User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, userId])
+  @@map("team_memberships")
+}
+
+model Task {
+  id          String       @id @default(uuid())
+  projectId   String       @map("project_id")
+  title       String
+  description String?
+  status      TaskStatus   @default(TODO)
+  priority    TaskPriority @default(MEDIUM)
+  dueDate     DateTime?    @map("due_date")
+  assignedTo  String?      @map("assigned_to")
+  createdBy   String       @map("created_by")
+  isDeleted   Boolean      @default(false) @map("is_deleted")
+  deletedAt   DateTime?    @map("deleted_at")
+  deletedBy   String?      @map("deleted_by")
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+
+  // Relations
+  project     Project      @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  assignee    User?        @relation("TaskAssignee", fields: [assignedTo], references: [id], onDelete: SetNull)
+  creator     User         @relation("TaskCreator", fields: [createdBy], references: [id])
+  deleter     User?        @relation("TaskDeleter", fields: [deletedBy], references: [id])
+
+  @@map("tasks")
+}
