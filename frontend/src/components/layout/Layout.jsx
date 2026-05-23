@@ -16,13 +16,9 @@ const Layout = () => {
   const { data, isLoading, isError } = useGetCurrentUserQuery(undefined, { skip: !token });
 
   useEffect(() => {
-    if (data?.data?.user) {
-      if (!currentUser) {
-        dispatch(setCredentials({ user: data.data.user, token }));
-      } else {
-        dispatch(updateUser(data.data.user));
-      }
-    }
+    if (!data?.data?.user || currentUser) return;
+
+    dispatch(setCredentials({ user: data.data.user, token }));
   }, [data, currentUser, dispatch, token]);
 
   if (isLoading && !currentUser) {
