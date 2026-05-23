@@ -24,7 +24,7 @@ export const createTaskSchema = z.object({
       .default('MEDIUM'),
     dueDate: z
       .string()
-      .datetime('Invalid date format')
+      .regex(/^[0-9]{4}-[0-9]{2}-[0-9]{2}(T.*)?$/, 'Invalid date format')
       .optional()
       .or(z.literal('')),
     assignedTo: z
@@ -63,7 +63,7 @@ export const updateTaskSchema = z.object({
       .optional(),
     dueDate: z
       .string()
-      .datetime('Invalid date format')
+      .regex(/^[0-9]{4}-[0-9]{2}-[0-9]{2}(T.*)?$/, 'Invalid date format')
       .optional()
       .or(z.literal(''))
       .or(z.null()),

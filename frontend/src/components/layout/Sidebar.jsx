@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Home, FolderKanban, CheckSquare, Users, BarChart3 } from 'lucide-react';
+import { Home, FolderKanban, Users, User, BarChart3 } from 'lucide-react';
 import { selectSidebarOpen, toggleSidebar } from '../../store/slices/uiSlice';
 
 const Sidebar = () => {
@@ -10,9 +10,9 @@ const Sidebar = () => {
   const navItems = [
     { name: 'Dashboard', path: '/dashboard', icon: Home },
     { name: 'Projects', path: '/projects', icon: FolderKanban },
-    { name: 'Tasks', path: '/tasks', icon: CheckSquare },
-    { name: 'Team', path: '/team', icon: Users },
     { name: 'Analytics', path: '/analytics', icon: BarChart3 },
+    { name: 'Team', path: '/team', icon: Users },
+    { name: 'Profile', path: '/profile', icon: User },
   ];
 
   return (
