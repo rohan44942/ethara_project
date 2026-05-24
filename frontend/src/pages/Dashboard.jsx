@@ -57,11 +57,11 @@ const Dashboard = () => {
         {statCards.map((stat, index) => (
           <Card key={index} className="p-0">
             <div className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600">{stat.title}</p>
-                  <p className="text-3xl font-bold text-gray-900 mt-2">{stat.value}</p>
-                </div>
+              <div>
+                <p className="text-sm text-gray-600">{stat.title}</p>
+              </div>
+              <div className="mt-4 flex items-center justify-between">
+                <p className="text-3xl font-bold text-gray-900">{stat.value}</p>
                 <div className={`${stat.bgColor} p-3 rounded-lg`}>
                   <stat.icon className={stat.color} size={24} />
                 </div>

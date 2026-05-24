@@ -59,13 +59,15 @@ export default function Analytics() {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
         {statCards.map((card) => (
           <Card key={card.title} className="p-0">
-            <div className="p-6 flex items-center justify-between gap-4">
+            <div className="p-6">
               <div>
                 <p className="text-sm text-gray-600">{card.title}</p>
-                <p className="text-3xl font-bold text-gray-900 mt-3">{card.value}</p>
               </div>
-              <div className={`${card.bgColor} p-3 rounded-lg`}>
-                <card.icon className={card.color} size={24} />
+              <div className="mt-4 flex items-center justify-between">
+                <p className="text-3xl font-bold text-gray-900">{card.value}</p>
+                <div className={`${card.bgColor} p-3 rounded-lg`}>
+                  <card.icon className={card.color} size={24} />
+                </div>
               </div>
             </div>
           </Card>
