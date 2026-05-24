@@ -30,7 +30,7 @@ export default function Analytics() {
     },
     {
       title: 'Completed',
-      value: stats.tasksByStatus?.DONE || 0,
+      value: stats.tasksByStatus?.done || 0,
       icon: CheckCircle2,
       color: 'text-success',
       bgColor: 'bg-green-100',
@@ -44,7 +44,10 @@ export default function Analytics() {
     },
   ];
 
-  const completionRate = Math.round((stats.completionRate ?? 0) * 100);
+  const completionRate =
+    stats.completionRate >= 0 && stats.completionRate <= 1
+      ? Math.round(stats.completionRate * 100)
+      : Math.round(stats.completionRate ?? 0);
 
   return (
     <div className="space-y-6 p-6">
@@ -88,15 +91,15 @@ export default function Analytics() {
             <div className="grid grid-cols-3 gap-3 text-sm text-gray-600">
               <div>
                 <p className="font-semibold text-gray-900">To Do</p>
-                <p>{stats.tasksByStatus?.TODO ?? 0}</p>
+                <p>{stats.tasksByStatus?.todo ?? 0}</p>
               </div>
               <div>
                 <p className="font-semibold text-gray-900">In Progress</p>
-                <p>{stats.tasksByStatus?.IN_PROGRESS ?? 0}</p>
+                <p>{stats.tasksByStatus?.inProgress ?? 0}</p>
               </div>
               <div>
                 <p className="font-semibold text-gray-900">Completed</p>
-                <p>{stats.tasksByStatus?.DONE ?? 0}</p>
+                <p>{stats.tasksByStatus?.done ?? 0}</p>
               </div>
             </div>
           </div>
