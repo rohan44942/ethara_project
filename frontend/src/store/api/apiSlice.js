@@ -55,6 +55,12 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ['Auth'],
     }),
+    getUserSuggestions: builder.query({
+      query: (search) => ({
+        url: `/auth/users`,
+        params: { search },
+      }),
+    }),
 
     // Projects endpoints
     getProjects: builder.query({
@@ -186,6 +192,7 @@ export const {
   useSignupMutation,
   useGetCurrentUserQuery,
   useUpdateCurrentUserMutation,
+  useGetUserSuggestionsQuery,
   useGetProjectsQuery,
   useGetProjectQuery,
   useCreateProjectMutation,

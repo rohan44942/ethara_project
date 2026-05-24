@@ -54,3 +54,15 @@ export const updateCurrentUser = asyncHandler(async (req, res) => {
     },
   });
 });
+
+export const searchUsers = asyncHandler(async (req, res) => {
+  const { search } = req.query;
+  const users = await authService.searchUsersByEmail(search);
+
+  res.status(200).json({
+    success: true,
+    data: {
+      users,
+    },
+  });
+});

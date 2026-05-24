@@ -1,12 +1,28 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal, Input, Button } from '../common';
+import { useGetUserSuggestionsQuery } from '../../store/api/apiSlice';
 
 export default function AddMemberModal({ isOpen, onClose, onAdd }) {
   const [formData, setFormData] = useState({
     email: '',
     role: 'MEMBER',
   });
+  const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    const value = formData.email.trim();
+    if (value.length >= 2) {
+      const timeout = setTimeout(() => setSearchTerm(value), 300);
+      return () => clearTimeout(timeout);
+    }
+    setSearchTerm('');
+  }, [formData.email]);
+
+  const { data: suggestionData, isFetching: suggestionsLoading } = useGetUserSuggestionsQuery(searchTerm, {
+    skip: !searchTerm,
+  });
+  const suggestions = suggestionData?.data?.users || [];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,6 +37,11 @@ export default function AddMemberModal({ isOpen, onClose, onAdd }) {
     }
   };
 
+  const handleSuggestionClick = (email) => {
+    setFormData((prev) => ({ ...prev, email }));
+    setSearchTerm('');
+  };
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Add Team Member">
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -30,14 +51,39 @@ export default function AddMemberModal({ isOpen, onClose, onAdd }) {
           </div>
         )}
 
-        <Input
-          label="Email Address"
-          type="email"
-          value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          placeholder="member@example.com"
-          required
-        />
+        <div className="relative">
+          <Input
+            label="Email Address"
+            type="email"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            placeholder="member@example.com"
+            required
+          />
+
+          {searchTerm && (
+            <div className="absolute left-0 right-0 top-full mt-1 bg-white border border-gray-200 rounded-lg shadow-sm z-10 max-h-56 overflow-y-auto">
+              {suggestions.length > 0 ? (
+                suggestions.map((user) => (
+                  <button
+                    type="button"
+                    key={user.id}
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      handleSuggestionClick(user.email);
+                    }}
+                    className="w-full text-left px-4 py-3 hover:bg-gray-100"
+                  >
+                    <div className="font-medium text-gray-900">{user.name}</div>
+                    <div className="text-sm text-gray-500">{user.email}</div>
+                  </button>
+                ))
+              ) : (
+                <div className="px-4 py-3 text-sm text-gray-500">{suggestionsLoading ? 'Searching...' : 'No matching emails found.'}</div>
+              )}
+            </div>
+          )}
+        </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Role</label>

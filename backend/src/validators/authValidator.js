@@ -51,3 +51,9 @@ export const updateProfileSchema = z.object({
       .optional(),
   }),
 });
+
+export const userSearchSchema = z.object({
+  query: z.object({
+    search: z.string().min(2, 'Search term must be at least 2 characters'),
+  }),
+});

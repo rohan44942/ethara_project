@@ -122,3 +122,23 @@ export const updateCurrentUser = async (userId, updateData) => {
 
   return user;
 };
+
+export const searchUsersByEmail = async (search) => {
+  const users = await prisma.user.findMany({
+    where: {
+      email: {
+        contains: search,
+        mode: 'insensitive',
+      },
+      status: 'ACTIVE',
+    },
+    select: {
+      id: true,
+      email: true,
+      name: true,
+    },
+    take: 10,
+  });
+
+  return users;
+};
