@@ -47,6 +47,14 @@ export const apiSlice = createApi({
       query: () => '/auth/me',
       providesTags: ['Auth'],
     }),
+    updateCurrentUser: builder.mutation({
+      query: (updateData) => ({
+        url: '/auth/me',
+        method: 'PATCH',
+        body: updateData,
+      }),
+      invalidatesTags: ['Auth'],
+    }),
 
     // Projects endpoints
     getProjects: builder.query({
@@ -177,6 +185,7 @@ export const {
   useLoginMutation,
   useSignupMutation,
   useGetCurrentUserQuery,
+  useUpdateCurrentUserMutation,
   useGetProjectsQuery,
   useGetProjectQuery,
   useCreateProjectMutation,

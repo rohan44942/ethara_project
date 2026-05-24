@@ -41,3 +41,16 @@ export const getCurrentUser = asyncHandler(async (req, res) => {
     },
   });
 });
+
+export const updateCurrentUser = asyncHandler(async (req, res) => {
+  const updateData = req.body;
+  const user = await authService.updateCurrentUser(req.user.id, updateData);
+
+  res.status(200).json({
+    success: true,
+    message: 'Profile updated successfully',
+    data: {
+      user,
+    },
+  });
+});

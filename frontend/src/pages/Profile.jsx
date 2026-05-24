@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Mail, User as UserIcon, Calendar } from 'lucide-react';
-import { useGetStatsQuery } from '../store/api/apiSlice';
+import { useGetStatsQuery, useUpdateCurrentUserMutation } from '../store/api/apiSlice';
 import { Card, Button, Input, LoadingSpinner } from '../components/common';
 import { selectCurrentUser, updateUser } from '../store/slices/authSlice';
 import { showToast } from '../store/slices/uiSlice';
@@ -14,6 +14,7 @@ export default function Profile() {
     name: '',
     email: '',
   });
+  const [updateCurrentUser] = useUpdateCurrentUserMutation();
   const { data: statsData, isLoading: statsLoading } = useGetStatsQuery();
 
   useEffect(() => {
@@ -23,14 +24,23 @@ export default function Profile() {
     });
   }, [user]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(updateUser(formData));
-    dispatch(showToast({
-      message: 'Profile saved locally. Backend update is not configured yet.',
-      type: 'info',
-    }));
-    setIsEditing(false);
+
+    try {
+      const response = await updateCurrentUser(formData).unwrap();
+      dispatch(updateUser(response.data.user));
+      dispatch(showToast({
+        message: 'Profile updated successfully.',
+        type: 'success',
+      }));
+      setIsEditing(false);
+    } catch (error) {
+      dispatch(showToast({
+        message: error.data?.error || 'Failed to update profile. Please try again.',
+        type: 'error',
+      }));
+    }
   };
 
   if (!user) {
@@ -102,17 +112,17 @@ export default function Profile() {
       </div>
 
       <Card title="Account Statistics" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="text-center">
-            <p className="text-3xl font-bold text-primary">{statsData?.data?.stats?.totalProjects ?? 0}</p>
+            <p className="text-3xl font-bold text-primary">{statsData?.data?.totalProjects ?? 0}</p>
             <p className="text-gray-600 mt-1">Projects</p>
           </div>
           <div className="text-center">
-            <p className="text-3xl font-bold text-success">{statsData?.data?.stats?.tasksByStatus?.done ?? 0}</p>
+            <p className="text-3xl font-bold text-success">{statsData?.data?.tasksByStatus?.done ?? 0}</p>
             <p className="text-gray-600 mt-1">Tasks Completed</p>
           </div>
           <div className="text-center">
-            <p className="text-3xl font-bold text-secondary">{statsData?.data?.stats?.myTasks ?? 0}</p>
+            <p className="text-3xl font-bold text-secondary">{statsData?.data?.myTasks ?? 0}</p>
             <p className="text-gray-600 mt-1">Assigned Tasks</p>
           </div>
         </div>
