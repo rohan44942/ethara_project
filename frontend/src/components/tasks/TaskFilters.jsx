@@ -23,7 +23,7 @@ export default function TaskFilters({ filters, onFilterChange, members }) {
           <option value="">All Status</option>
           <option value="TODO">To Do</option>
           <option value="IN_PROGRESS">In Progress</option>
-          <option value="COMPLETED">Completed</option>
+          <option value="DONE">Completed</option>
         </select>
 
         <select

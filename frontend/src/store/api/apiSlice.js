@@ -73,7 +73,13 @@ export const apiSlice = createApi({
     // Tasks endpoints
     getProjectTasks: builder.query({
       query: (projectId) => `/projects/${projectId}/tasks`,
-      providesTags: (result, error, projectId) => [{ type: 'Tasks', projectId }],
+      providesTags: (result, error, projectId) =>
+        result?.data?.tasks
+          ? [
+              ...result.data.tasks.map((task) => ({ type: 'Tasks', id: task.id })),
+              { type: 'Tasks', projectId },
+            ]
+          : [{ type: 'Tasks', projectId }],
     }),
     getTask: builder.query({
       query: (id) => `/tasks/${id}`,

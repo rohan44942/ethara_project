@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const statusColors = {
   TODO: 'bg-gray-100 text-gray-800',
   IN_PROGRESS: 'bg-blue-100 text-blue-800',
-  COMPLETED: 'bg-green-100 text-green-800',
+  DONE: 'bg-green-100 text-green-800',
 };
 
 const priorityColors = {
@@ -15,7 +15,7 @@ const priorityColors = {
 };
 
 export default function TaskCard({ task, onEdit, onDelete, onStatusChange }) {
-  const isOverdue = new Date(task.dueDate) < new Date() && task.status !== 'COMPLETED';
+  const isOverdue = new Date(task.dueDate) < new Date() && task.status !== 'DONE';
 
   return (
     <motion.div
@@ -45,30 +45,30 @@ export default function TaskCard({ task, onEdit, onDelete, onStatusChange }) {
         {isOverdue && <Badge className="bg-red-100 text-red-800">OVERDUE</Badge>}
       </div>
 
-      <div className="flex items-center justify-between text-sm text-gray-500">
-        <div className="flex items-center gap-4">
+      <div className="flex flex-col gap-3 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-wrap items-center gap-4 min-w-0">
           {task.assignee && (
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 min-w-0">
               <User size={14} />
               <span>{task.assignee.name}</span>
             </div>
           )}
           {task.dueDate && (
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 min-w-0">
               <Calendar size={14} />
               <span>{new Date(task.dueDate).toLocaleDateString()}</span>
             </div>
           )}
         </div>
-        
+
         <select
           value={task.status}
           onChange={(e) => onStatusChange(task.id, e.target.value)}
-          className="text-xs border rounded px-2 py-1"
+          className="text-xs border rounded px-2 py-1 min-w-[120px] w-full sm:w-auto"
         >
           <option value="TODO">To Do</option>
           <option value="IN_PROGRESS">In Progress</option>
-          <option value="COMPLETED">Completed</option>
+          <option value="DONE">Completed</option>
         </select>
       </div>
     </motion.div>
