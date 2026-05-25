@@ -184,41 +184,6 @@ Authorization: Bearer <your-token>
 - Smooth animations with Framer Motion
 - Responsive design
 
-## 🧪 Testing
-
-```bash
-# Backend tests (Coming soon)
-cd backend
-npm test
-
-# Frontend tests (Coming soon)
-cd frontend
-npm test
-```
-
-## 🚀 Deployment
-
-### Railway Deployment
-
-1. **Create Railway account**
-   - Visit https://railway.app
-   - Sign up with GitHub
-
-2. **Setup Database**
-   - Create new project
-   - Add PostgreSQL database
-   - Copy DATABASE_URL
-
-3. **Deploy Backend**
-   - Connect GitHub repository
-   - Set environment variables
-   - Deploy service
-
-4. **Deploy Frontend**
-   - Add new service
-   - Set VITE_API_URL
-   - Deploy
-
 See [SETUP_GUIDE.md](SETUP_GUIDE.md) for detailed instructions.
 
 ## 📝 Environment Variables
@@ -259,7 +224,7 @@ MIT License - see LICENSE file for details
 
 ## 👨‍💻 Author
 
-Your Name
+Rohan Nooniwal
 
 ## 🙏 Acknowledgments
 
@@ -272,37 +237,11 @@ Your Name
 
 For issues and questions:
 - Create an issue on GitHub
-- Email: your-email@example.com
-
-## 🎯 Project Status
-
-### ✅ Completed
-- [x] Project structure setup
-- [x] Database schema design
-- [x] Middleware implementation
-- [x] Basic server configuration
-
-### 🚧 In Progress
-- [ ] Authentication module
-- [ ] Projects CRUD
-- [ ] Team management
-- [ ] Tasks module
-- [ ] Dashboard
-- [ ] Frontend development
-
-### 📅 Planned
-- [ ] CI/CD pipeline
-- [ ] Automated tests
-- [ ] Railway deployment
-- [ ] Demo video
-- [ ] Documentation
+- Email: Rohannooniwal39@gmail.com
 
 ## 🔗 Links
 
-- **Live Demo:** Coming soon
-- **API Documentation:** Coming soon
-- **GitHub Repository:** Your repo URL
-- **Demo Video:** Coming soon
+- **GitHub Repository:** https://github.com/rohan44942/ethara_project/tree/ROHAN
 
 ---
 
