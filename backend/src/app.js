@@ -15,9 +15,24 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
+const defaultOrigins = ['http://localhost:5173', 'http://localhost:4173'];
+const configuredOrigins = (process.env.FRONTEND_URL || '')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
+const isAllowedOrigin = (origin) => {
+  if (!origin) return true;
+  if (defaultOrigins.includes(origin) || configuredOrigins.includes(origin)) return true;
+  try {
+    return new URL(origin).hostname.endsWith('.vercel.app');
+  } catch {
+    return false;
+  }
+};
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: (origin, callback) => callback(null, isAllowedOrigin(origin)),
   credentials: true,
 }));
 app.use(express.json());

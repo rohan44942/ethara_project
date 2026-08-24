@@ -5,10 +5,5 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: '0.0.0.0',
-    allowedHosts: ['ethara-frontend-production-a49d.up.railway.app']
   },
-  preview: {
-    host: '0.0.0.0',
-    allowedHosts: ['ethara-frontend-production-a49d.up.railway.app']
-  }
 })

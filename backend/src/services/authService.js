@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import prisma from '../config/database.js';
 import { generateToken } from '../utils/jwtUtils.js';
 import { AppError } from '../utils/errorHandler.js';
